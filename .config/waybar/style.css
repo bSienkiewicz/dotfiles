@@ -1,0 +1,81 @@
+@import '../../.cache/wal/colors-waybar.css';
+
+* {
+  border: none;
+  font-family: "JetBrains Mono", "Font Awesome 6 Pro";
+  font-size: 14px;
+  font-weight: 600;
+  background: none;
+}
+
+window#waybar {
+  color: #a5adcb;
+}
+.modules-left,
+.modules-right,
+.modules-center {
+  border-radius: 6px;
+  background: @background;
+  padding: 5px 10px;
+}
+tooltip {
+  color: #a5adcb;
+  background-color: #181926;
+  text-shadow: none;
+}
+
+tooltip * {
+  color: #a5adcb;
+  text-shadow: none;
+}
+.modules-center {
+}
+
+#custom-sep {
+  color: #494d64;
+  margin: 4px 0;
+}
+#workspaces,
+#clock,
+#custom-bluetooth_devices,
+#custom-powermenu,
+#pulseaudio,
+#tray {
+}
+#workspaces {
+/*  border-radius: 4px; */
+  padding: 0px 10px;
+}
+#workspaces button {
+  color: #5b6078;
+  background: transparent;
+  padding: 0 5px;
+  border: none;
+}
+#workspaces button:hover {
+  color: #a6da95;
+}
+#workspaces button.active {
+  color: #f5bde6;
+}
+#temperature {
+  color: #eed49f;
+}
+#clock {
+  font-weight: 800;
+  color: #8bd5ca;
+}
+#custom-bluetooth_devices {
+  color: #8aadf4;
+}
+#pulseaudio {
+  color: #a6da95;
+}
+#pulseaudio.muted {
+  color: #ed8796;
+}
+
+#custom-powermenu {
+  margin: 12px 0 0 0;
+  color: #6e738d;
+}
