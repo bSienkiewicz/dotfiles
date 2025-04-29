@@ -6,7 +6,21 @@
   "spacing": 5,
   "modules-left": [
     "custom/sep",
+    "custom/weather",
+    "custom/sep",
     "hyprland/workspaces",
+    "custom/sep",
+    // "tray",
+    "wlr/taskbar",
+    "custom/sep"
+    // "custom/powermenu"
+  ],
+  "modules-center": [
+    "hyprland/window" 
+ ],
+  "modules-right": [
+    "custom/sep",
+    "network",
     "custom/sep",
     "cpu",
     "custom/sep",
@@ -16,21 +30,8 @@
     "custom/sep",
     "pulseaudio",
     "custom/sep",
-    "network",
-    "custom/sep"
-    // "custom/powermenu"
-  ],
-  "modules-center": [
-    "hyprland/window" 
- ],
-  "modules-right": [
-    "custom/sep",
-    "custom/weather",
-    "custom/sep",
     "clock",
     "custom/sep"
-//    "tray",
-//    "custom/sep",
  ],
   "custom/sep": {
     //    "format": "──"
@@ -45,7 +46,7 @@
 "custom/weather": {
     "format": "{}",
     "tooltip": true,
-    "interval": 3600,
+    "interval": 120,
 //    "exec": "~/.config/waybar/custom_modules/waybar-wttr.py",
     "exec": "wttrbar --location Zielona+Gora",
     "return-type": "json"
@@ -90,6 +91,15 @@
     "icon-size": 18,
     "show-passive-items": "true"
   },
+
+"wlr/taskbar": {
+  "format": "{icon}",
+  "icon-size": 16,
+  "tooltip-format": "{title}",
+  "on-click": "activate",
+  "on-click-middle": "close"
+},
+
 
 "cpu": {
   "interval": 5,

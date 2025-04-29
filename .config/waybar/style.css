@@ -9,7 +9,7 @@
 }
 
 window#waybar {
-  color: #a5adcb;
+  color: /* #a5adcb; */ @foreground;
 }
 .modules-left,
 .modules-right,
@@ -17,6 +17,7 @@ window#waybar {
   border-radius: 6px;
   background: @background;
   padding: 5px 10px;
+  opacity: 0.9;
 }
 tooltip {
   color: #a5adcb;
@@ -52,6 +53,16 @@ tooltip * {
   padding: 0 5px;
   border: none;
 }
+#cpu{
+  color: #9fede4;
+}
+#memory{
+  color: #c59fed;
+}
+#network{
+  color: @foreground;
+}
+
 #workspaces button:hover {
   color: #a6da95;
 }
