@@ -4,42 +4,26 @@
   "height": 42,
   "margin": "10 10 0 10",
   "spacing": 5,
+ 
   "modules-left": [
-    "custom/sep",
-    "custom/weather",
-    "custom/sep",
-    "hyprland/workspaces",
-    "custom/sep",
-    // "tray",
+    "cpu",
+    "memory",
+    // "temperature",
     "wlr/taskbar",
-    "custom/sep"
-    // "custom/powermenu"
+    "hyprland/window"
   ],
   "modules-center": [
-    "hyprland/window" 
- ],
+    "hyprland/workspaces",
+  ],
   "modules-right": [
-    "custom/sep",
-    // "network",
-    // "image",
-    // "custom/mediaplayer",
-    // "custom/sep",
-    "cpu",
-    "custom/sep",
-    "memory",
-    "custom/sep",
-    "temperature",
-    "custom/sep",
+    // "custom/weather",
     "pulseaudio#mic",
     "pulseaudio",
-    "custom/sep",
     "clock",
-    "custom/sep"
- ],
+  ],
+
   "custom/sep": {
-    //    "format": "──"
     "format": "",
-    // "format": " ",
     "rotate": 90
   },
   "custom/powermenu": {
@@ -47,14 +31,13 @@
     "format": "",
     "tooltip": false
   },
-"custom/weather": {
+  "custom/weather": {
     "format": "{}",
     "tooltip": true,
-    "interval": 120,
-//    "exec": "~/.config/waybar/custom_modules/waybar-wttr.py",
+    "interval": 600,
     "exec": "wttrbar --location Zielona+Gora",
     "return-type": "json"
-},
+  },
   "custom/bluetooth_devices": {
     "exec": "$HOME/.config/waybar/custom_modules/bluetooth.sh",
     "return-type": "json",
@@ -81,8 +64,7 @@
     "icon-size": 18,
     "max-length": 40,
     "rewrite":{
-        "": "❤",
-	"^$": "No window"
+        "": "❤"
     }
   },
   "clock": {
@@ -107,7 +89,7 @@
 
 "cpu": {
   "interval": 5,
-  "format": "{icon} {usage}%",
+  "format": "  {usage}%",
   "format-icons": [ "", "", "" ], // Example icons, adjust as you like
   "tooltip": true,
   "on-click": "kitty -e btop"
@@ -154,13 +136,16 @@
     },
     "scroll-step": 5,
     "on-click": "pavucontrol",
-    "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
   },
   "pulseaudio#mic": {
     "format": "{format_source}",
-    "format-source": "\u2007",
-    "format-source-muted": "<span color='#fa4866'></span>\u2007",
-    "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+    "format-source": " {volume}%",
+    "format-source-muted": "<span color='#fa4866'> {volume}%</span>",
+    "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+    "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+    "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
+    "on-click-right": "pactl set-source-volume @DEFAULT_SOURCE@ 100%",
+    "scroll-step": 5
   },
 
   "image": {
@@ -180,5 +165,5 @@
     "on-scroll-down": "python ~/.config/waybar/waybar-mediaplayer/src/mediaplayer previous",
     "min-length": 20,
     "max-length": 30
-  }
+  },
 }

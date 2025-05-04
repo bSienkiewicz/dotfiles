@@ -15,18 +15,18 @@ window#waybar {
 .modules-right,
 .modules-center {
   border-radius: 6px;
-  /* background: @background; */
+  background: @background;
   padding: 5px 10px;
   opacity: 0.9;
 }
 tooltip {
-  color: @foreground;
-  background-color: @background;
+  color: #a5adcb;
+  background-color: #181926;
   text-shadow: none;
 }
 
 tooltip * {
-  color: @foreground;
+  color: #a5adcb;
   text-shadow: none;
 }
 .modules-center {
@@ -36,26 +36,16 @@ tooltip * {
   color: #494d64;
   margin: 4px 0;
 }
-
 #workspaces,
 #clock,
 #custom-bluetooth_devices,
 #custom-powermenu,
 #pulseaudio,
-#cpu,
-#memory,
-#temperature,
-#window,
-#taskbar,
 #tray {
-  /* border: 2px solid @color6; */
-  background: @background;
-  border-radius: 10px;
-  padding: 0 10px;
 }
-
 #workspaces {
-  padding-right: 10px;
+/*  border-radius: 4px; */
+  padding: 0px 10px;
 }
 #workspaces button {
   color: #5b6078;
@@ -64,12 +54,10 @@ tooltip * {
   border: none;
 }
 #cpu{
-  /* color: #9fede4; */
-  color: @foreground;
+  color: #9fede4;
 }
 #memory{
-  /* color: #c59fed; */
-  color: @foreground;
+  color: #c59fed;
 }
 #network{
   color: @foreground;
@@ -86,8 +74,7 @@ tooltip * {
 }
 #clock {
   font-weight: 800;
-  /* color: #8bd5ca; */
-  color: #B8BCC3;
+  color: #8bd5ca;
 }
 #custom-bluetooth_devices {
   color: #8aadf4;

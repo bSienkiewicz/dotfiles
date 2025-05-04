@@ -1,17 +1,17 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 34,
+  "height": 42,
   "margin": "10 10 0 10",
   "spacing": 5,
   "modules-left": [
     "custom/sep",
+    "custom/weather",
+    "custom/sep",
     "hyprland/workspaces",
-   // "custom/bluetooth_devices",
     "custom/sep",
-    "temperature",
-    "custom/sep",
-    "pulseaudio",
+    // "tray",
+    "wlr/taskbar",
     "custom/sep"
     // "custom/powermenu"
   ],
@@ -20,16 +20,26 @@
  ],
   "modules-right": [
     "custom/sep",
-    "custom/weather",
+    // "network",
+    // "image",
+    // "custom/mediaplayer",
+    // "custom/sep",
+    "cpu",
+    "custom/sep",
+    "memory",
+    "custom/sep",
+    "temperature",
+    "custom/sep",
+    "pulseaudio#mic",
+    "pulseaudio",
     "custom/sep",
     "clock",
     "custom/sep"
-//    "tray",
-//    "custom/sep",
  ],
   "custom/sep": {
     //    "format": "──"
     "format": "",
+    // "format": " ",
     "rotate": 90
   },
   "custom/powermenu": {
@@ -40,7 +50,7 @@
 "custom/weather": {
     "format": "{}",
     "tooltip": true,
-    "interval": 3600,
+    "interval": 120,
 //    "exec": "~/.config/waybar/custom_modules/waybar-wttr.py",
     "exec": "wttrbar --location Zielona+Gora",
     "return-type": "json"
@@ -79,14 +89,49 @@
     "tooltip": true,
     "format": "{:%H:%M}",
     "tooltip-format": "{:%Y-%m-%d}",
-    "on-click": "kitty -e calcure"
+    "on-click": "kitty -e calcurse"
   },
   "tray": {
     "icon-size": 18,
     "show-passive-items": "true"
   },
+
+"wlr/taskbar": {
+  "format": "{icon}",
+  "icon-size": 16,
+  "tooltip-format": "{title}",
+  "on-click": "activate",
+  "on-click-middle": "close"
+},
+
+
+"cpu": {
+  "interval": 5,
+  "format": "{icon} {usage}%",
+  "format-icons": [ "", "", "" ], // Example icons, adjust as you like
+  "tooltip": true,
+  "on-click": "kitty -e btop"
+},
+
+"memory": {
+  "interval": 3,
+  "format": "{icon} {percentage}%",
+  "format-icons": [ "" ],
+  "tooltip": true,
+  "on-click": "kitty -e btop"
+},
+
+"network": {
+  "format": "{icon} ↓ {bandwidthDownBits} ↑ {bandwidthUpBits}",
+  "format-icons": [ "󰈀", "", "󰤨" ],
+  "tooltip": true,
+  "interval": 1,
+  "on-click": "kitty -e btop"
+},
+
   "temperature": {
     "rotate": 0,
+    "on-click": "kitty -e btop",
     "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
     "critical-threshold": 80,
     "format": "{icon} {temperatureC}°C",
@@ -102,19 +147,38 @@
     "format-bluetooth": "{icon} {volume}%",
     "format-muted": "MUTE ",
     "format-icons": {
-      "headphones": "",
-      "handsfree": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
       "default": [
-        "",
-        ""
+        " ",
+        " "
       ]
     },
     "scroll-step": 5,
     "on-click": "pavucontrol",
     "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+  },
+  "pulseaudio#mic": {
+    "format": "{format_source}",
+    "format-source": "\u2007",
+    "format-source-muted": "<span color='#fa4866'></span>\u2007",
+    "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+  },
+
+  "image": {
+    "path": "/tmp/waybar-mediaplayer-art",
+    "size": 32,
+    "signal": 4,
+    "empty-output-hides": true,
+    "on-click": "feh --auto-zoom --borderless --title 'feh-float' /tmp/waybar-mediaplayer-art"
+  },
+  "custom/mediaplayer": {
+    "exec": "python ~/.config/waybar/waybar-mediaplayer/src/mediaplayer monitor",
+    "return-type": "json",
+    "empty-output-hides": true,
+    "format": "{}",
+    "on-click": "python ~/.config/waybar/waybar-mediaplayer/src/mediaplayer play-pause",
+    "on-scroll-up": "python ~/.config/waybar/waybar-mediaplayer/src/mediaplayer next",
+    "on-scroll-down": "python ~/.config/waybar/waybar-mediaplayer/src/mediaplayer previous",
+    "min-length": 20,
+    "max-length": 30
   }
 }
