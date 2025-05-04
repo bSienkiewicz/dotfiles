@@ -9,7 +9,7 @@
 }
 
 window#waybar {
-  color: /* #a5adcb; */ @foreground;
+  color: /* #a4adcb; */ @foreground;
 }
 .modules-left,
 .modules-right,
@@ -84,6 +84,12 @@ tooltip * {
 }
 #pulseaudio.muted {
   color: #ed8796;
+}
+#pulseaudio-mic{
+  margin-right:15px;
+}
+#muted-mic{
+  color:red;
 }
 
 #custom-powermenu {

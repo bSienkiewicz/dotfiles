@@ -1,0 +1,13 @@
+[pyprland]
+plugins = [
+  # List plugins here (e.g., "scratchpads", "workspaces")
+  "expose",
+  "scratchpads"
+]
+
+
+[scratchpads.terminal]
+command = "thunar"
+class = "discord"
+animation = "fromTop"
+size = "75% 60%"
