@@ -59,15 +59,18 @@ tooltip * {
 }
 #workspaces button {
   color: #5b6078;
+  /* color: @color6; */
   background: transparent;
   padding: 0 5px;
   border: none;
 }
 #cpu{
+  font-weight: 800;
   /* color: #9fede4; */
   color: @foreground;
 }
 #memory{
+  font-weight: 800;
   /* color: #c59fed; */
   color: @foreground;
 }
@@ -76,29 +79,35 @@ tooltip * {
 }
 
 #workspaces button:hover {
-  color: #a6da95;
+  /* color: #a6da95; */
+  color: @color4;
 }
 #workspaces button.active {
-  color: #f5bde6;
+  /* color: #f5bde6; */
+  color: @color6;
 }
 #temperature {
   color: #eed49f;
 }
 #clock {
   font-weight: 800;
-  /* color: #8bd5ca; */
-  color: #B8BCC3;
+  font-size: 16px;
+  color: @background;
+  background: @color6;
+  border: 2px solid @background;
 }
 #custom-bluetooth_devices {
   color: #8aadf4;
 }
 #pulseaudio {
+  font-weight: 800;
   color: #a6da95;
 }
 #pulseaudio.muted {
   color: #ed8796;
 }
 #pulseaudio-mic{
+  font-weight: 800;
   margin-right:15px;
 }
 #muted-mic{

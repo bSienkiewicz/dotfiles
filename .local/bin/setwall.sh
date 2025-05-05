@@ -3,8 +3,8 @@
 # Usage: ./setwall.sh /path/to/wallpaper.jpg
 
 if [ -z "$1" ]; then
-    echo "Usage: $0 /path/to/wallpaper.jpg"
-    exit 1
+  echo "Usage: $0 /path/to/wallpaper.jpg"
+  exit 1
 fi
 
 WALLPAPER="$1"
@@ -13,4 +13,4 @@ WALLPAPER="$1"
 waypaper --wallpaper "$WALLPAPER"
 
 # Generate and apply color scheme with pywal
-wal -i "$WALLPAPER"
+wal -i "$WALLPAPER" --cols16

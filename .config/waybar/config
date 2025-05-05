@@ -6,8 +6,6 @@
   "spacing": 5,
  
   "modules-left": [
-    "cpu",
-    "memory",
     // "temperature",
     "wlr/taskbar",
     "hyprland/window"
@@ -16,6 +14,8 @@
     "hyprland/workspaces",
   ],
   "modules-right": [
+    "cpu",
+    "memory",
     // "custom/weather",
     "pulseaudio#mic",
     "pulseaudio",
@@ -89,7 +89,7 @@
 
 "cpu": {
   "interval": 5,
-  "format": "  {usage}%",
+  "format": "{icon} {usage}%",
   "format-icons": [ "", "", "" ], // Example icons, adjust as you like
   "tooltip": true,
   "on-click": "kitty -e btop"
@@ -130,8 +130,8 @@
     "format-muted": "MUTE ",
     "format-icons": {
       "default": [
-        " ",
-        " "
+        "",
+        ""
       ]
     },
     "scroll-step": 5,
